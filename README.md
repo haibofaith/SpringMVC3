@@ -1,0 +1,2 @@
+# SpringMVC3
+handlerMapping
