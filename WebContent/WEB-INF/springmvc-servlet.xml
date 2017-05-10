@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 1 配置handlerMapping -->
+	<!-- beanname -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerBeanNameHandlerMapping"></bean> -->
+	<!-- <bean name="user.do" class="controller.UserController"></bean> -->
+	<!-- 2 根据简单url来查找controller -->
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/userInfo.do">useController</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="useController" name="user.do" class="controller.UserController"></bean> -->
+	<!-- 控制类的类名访问controller -->
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>
+	<bean class="controller.UserController"></bean> 
+	<!-- 配置视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 前缀 :说明如果直接放在web-inf下，不需要加前缀-->
+		<property name="prefix" value="/"></property>
+		<!-- 后缀 ： -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+</beans>
